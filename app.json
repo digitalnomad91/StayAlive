@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "StayAlive",
+    "slug": "stayalive",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.svg",
+    "splash": {
+      "image": "./assets/splash.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#0f172a"
+    },
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.svg",
+        "backgroundColor": "#0f172a"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.svg"
+    }
+  }
+}
