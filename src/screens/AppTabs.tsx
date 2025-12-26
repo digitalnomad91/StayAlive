@@ -18,9 +18,9 @@ export const AppTabs = () => {
   const [activeTab, setActiveTab] = useState('home');
 
   return (
-    <View className="flex-1 bg-midnight" style={{ minHeight: '100vh', width: '100%' }}>
+    <View className="flex-1 bg-midnight min-h-screen w-full">
       <StatusBar style="light" />
-      <SafeAreaView className="flex-1 bg-midnight" style={{ width: '100%' }}>
+      <SafeAreaView className="flex-1 bg-midnight w-full">
         <View className="flex-1 px-6 py-8">
           <Header />
           <TabBar tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
