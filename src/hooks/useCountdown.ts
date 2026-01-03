@@ -23,7 +23,7 @@ export const useCountdown = (initialSeconds: number, isActive: boolean) => {
     }
 
     const interval = setInterval(() => {
-      setSecondsLeft((current) => current - 1);
+      setSecondsLeft((current) => (current > 0 ? current - 1 : 0));
     }, 1000);
 
     return () => clearInterval(interval);

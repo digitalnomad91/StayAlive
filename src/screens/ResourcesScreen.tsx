@@ -2,16 +2,19 @@ import { Text, View } from 'react-native';
 
 const resources = [
   {
+    id: 'emergency-response',
     title: '📞 Emergency response',
     description:
       'Call 911 or your local emergency number if someone is unresponsive.',
   },
   {
+    id: 'naloxone-access',
     title: '🧡 Naloxone access',
     description:
       'Keep naloxone (Narcan) nearby. Many pharmacies and community orgs provide it.',
   },
   {
+    id: 'community-support',
     title: '🤝 Community support',
     description:
       'Connect with local harm-reduction groups for safety planning and supplies.',
@@ -23,7 +26,7 @@ export const ResourcesScreen = () => (
   <View className="mt-6 gap-4">
     <Text className="text-xl font-semibold text-dawn">Support resources</Text>
     {resources.map((resource) => (
-      <View key={resource.title} className="rounded-2xl bg-slate-900/60 p-4">
+      <View key={resource.id} className="rounded-2xl bg-slate-900/60 p-4">
         <Text className="text-base font-semibold text-emerald-200">
           {resource.title}
         </Text>
