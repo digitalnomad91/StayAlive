@@ -22,7 +22,8 @@ export const useCountdown = (initialSeconds: number, isActive: boolean) => {
     }
 
     const interval = setInterval(() => {
-      setSecondsLeft((current) => (current > 0 ? current - 1 : 0));
+      // Clamp at zero so the countdown never goes negative
+      setSecondsLeft((current) => Math.max(0, current - 1));
     }, 1000);
 
     return () => clearInterval(interval);
