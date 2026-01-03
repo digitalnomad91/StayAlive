@@ -14,7 +14,12 @@ export const PrimaryButton = ({
   className,
   textClassName,
 }: PrimaryButtonProps) => (
-  <Pressable onPress={onPress} className={className}>
+  <Pressable
+    onPress={onPress}
+    className={className}
+    accessibilityRole="button"
+    accessibilityLabel={label}
+  >
     <Text className={textClassName}>{label}</Text>
   </Pressable>
 );

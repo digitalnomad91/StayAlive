@@ -20,6 +20,9 @@ export const TabBar = ({ tabs, activeTab, onChange }: TabBarProps) => (
         <Pressable
           key={tab.id}
           onPress={() => onChange(tab.id)}
+          accessibilityRole="tab"
+          accessibilityState={{ selected: isActive }}
+          accessibilityLabel={tab.label}
           className={`flex-1 items-center rounded-full px-4 py-2 ${
             isActive ? 'bg-emerald-400' : ''
           }`}

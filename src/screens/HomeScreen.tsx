@@ -7,13 +7,13 @@ import { requestCurrentLocation } from '../services/locationService';
 import { buildChallenge, Challenge } from '../utils/challenge';
 import { formatSeconds } from '../utils/time';
 
-export type FlowState = 'idle' | 'armed' | 'challenge' | 'escalated';
+export type SafetyTimerState = 'idle' | 'armed' | 'challenge' | 'escalated';
 
 const INITIAL_DURATION_SECONDS = 120;
 
 // 🧩 Main app experience focused on the safety workflow.
 export const HomeScreen = () => {
-  const [flow, setFlow] = useState<FlowState>('idle');
+  const [flow, setFlow] = useState<SafetyTimerState>('idle');
   const [challenge, setChallenge] = useState<Challenge>(() => buildChallenge());
   const [challengeInput, setChallengeInput] = useState('');
   const [location, setLocation] = useState<
@@ -62,10 +62,12 @@ export const HomeScreen = () => {
   }, [resetCountdown]);
 
   const confirmResponsive = useCallback(() => {
+    // Pause/reset the countdown while the user is solving the challenge.
+    resetCountdown();
     setFlow('challenge');
     setChallengeInput('');
     setChallenge(buildChallenge());
-  }, []);
+  }, [resetCountdown]);
 
   const submitChallenge = useCallback(() => {
     if (challengeInput.trim() === challenge.answer) {
@@ -144,6 +146,7 @@ export const HomeScreen = () => {
             keyboardType="number-pad"
             placeholder="Answer"
             placeholderTextColor="#94a3b8"
+            accessibilityLabel="Answer to math challenge"
             className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-3 text-base text-dawn"
           />
           <PrimaryButton
