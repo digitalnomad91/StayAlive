@@ -44,7 +44,7 @@ export const HomeScreen = () => {
 
     const coords = await requestCurrentLocation();
     if (!coords) {
-      // Clear any previously stored coordinates so we don't show stale location
+      // Clear any previously stored coordinates so we don't show stale location.
       setLocation(null);
       setStatusMessage('Location permission denied. Add your location manually.');
       return;
@@ -58,7 +58,7 @@ export const HomeScreen = () => {
     setChallenge(buildChallenge());
     setChallengeInput('');
     setStatusMessage('');
-    setLocation(null); // ensure no stale coordinates remain
+    setLocation(null); // Ensure no stale coordinates remain.
   }, [resetCountdown]);
 
   const confirmResponsive = useCallback(() => {
